@@ -54,7 +54,12 @@ function sendEmail(e) {
 
         //Show the image
         document.querySelector('#loaders').appendChild ( sendEmailImg );
-        
+
+        //After 5 seconds, hide the image and reset the Form
+        setTimeout(function() {
+            sendEmailForm.reset();
+            sendEmailImg.remove();
+        }, 5000);
     }, 3000);
 }
 
