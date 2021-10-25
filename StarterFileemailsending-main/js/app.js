@@ -20,9 +20,8 @@ function eventListeners () {
 }
 
 
+
 //Functions
-
-
 
 //App Initialization
 function appInit () {
@@ -35,11 +34,29 @@ function validateField() {
     let errors;
 
     // Validate the Length of the Field
-    validateLength(this)
+    validateLength(this);
+
+    //Validate the email
+    if(this.type === 'email') {
+        validateEmail(this);
+    }
 }
 //Validate the Length of the Fields
 function validateLength (field) {
     if(field.value.length > 0) {
+        field.style.borderBottomColor = 'green';
+        field.classList.remove('error');
+    } else {
+        field.style.borderBottomColor = 'red';
+        field.classList.add('error')
+    }
+}
+//Validate Email (checks for @ in the value)
+
+function validateEmail(field) {
+    let emailText = field.value;
+    //Check if the email contains @ sign
+    if(emailText.indexOf('@') !== -1) {
         field.style.borderBottomColor = 'green';
         field.classList.remove('error');
     } else {
