@@ -2,13 +2,16 @@
 const sendBtn = document.getElementById('sendBtn'),
 email = document.getElementById ('email'),
 subject = document.getElementById ('subject'),
-message = document.getElementById ('message');
+message = document.getElementById ('message'),
+resetBtn = document.getElementById ('resetBtn'),
+sendEmailForm = document.getElementById ('email-form');
 
 
 
 //Event Listeners
 
 eventListeners ();
+
 function eventListeners () {
     //App Init
     document.addEventListener('DOMContentLoaded', appInit);
@@ -17,10 +20,11 @@ function eventListeners () {
     email.addEventListener('blur', validateField);
     subject.addEventListener('blur', validateField);
     message.addEventListener('blur', validateField);
+
+    //Send Email and Reset Button
+
+    resetBtn.addEventListener('click', resetForm);
 }
-
-
-
 //Functions
 
 //App Initialization
@@ -74,4 +78,7 @@ function validateEmail(field) {
         field.style.borderBottomColor = 'red';
         field.classList.add('error')
     }
+}
+function resetForm () {
+    sendEmailForm.reset();
 }
