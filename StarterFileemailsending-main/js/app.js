@@ -41,6 +41,12 @@ function sendEmail(e) {
     //Show the Spinner
     const spinner = document.querySelector('#spinner');
     spinner.style.display = 'block';
+
+    //Hide Spinner then show the send Email image
+    setTimeout(function () {
+        //Hide the Spinner
+        spinner.style.display = 'none';
+    }, 3000);
 }
 
 //Validate the Fields
